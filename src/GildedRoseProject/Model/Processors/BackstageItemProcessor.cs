@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using GildedRoseProgram.Interfaces;
+using System.Collections.Generic;
 
-namespace csharp.Model.Processors
+namespace GildedRoseProgram.Model.Processors
 {
-    public class BackstageItemProcessor : IItemProcessor
+    internal class BackstageItemProcessor : IItemProcessor
     {
-        public BackstageItemProcessor()
-        {
-        }
-
         public bool IsDefaultProcessor => false;
 
         public IEnumerable<string> ItemTypes => new[] { "backstage passes to a tafkal80etc concert" };

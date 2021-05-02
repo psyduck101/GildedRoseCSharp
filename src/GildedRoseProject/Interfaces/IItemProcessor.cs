@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using GildedRoseProgram.Model;
+using System.Collections.Generic;
 
-namespace csharp.Model
+namespace GildedRoseProgram.Interfaces
 {
     public interface IItemProcessor
     {

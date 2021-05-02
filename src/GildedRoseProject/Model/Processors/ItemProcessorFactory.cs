@@ -1,15 +1,16 @@
-﻿using System;
+﻿using GildedRoseProgram.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace csharp.Model.Processors
+namespace GildedRoseProgram.Model.Processors
 {
     public class ItemProcessorFactory : IItemProcessorFactory
     {
         protected IItemProcessor DefaultProcessor { get; set; }
         protected IDictionary<string, IItemProcessor> ItemProcessors { get; }
-        protected IDictionary<string, Type> ItemProcessorTypes { get; } //mapping multiple types on same processor
+        protected IDictionary<string, Type> ItemProcessorTypes { get; } //mapping multiple types on same processor, to avoid duplicate invoices
 
         public ItemProcessorFactory()
         {

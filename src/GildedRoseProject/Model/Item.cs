@@ -1,4 +1,4 @@
-﻿namespace csharp
+﻿namespace GildedRoseProgram.Model
 {
     public class Item
     {

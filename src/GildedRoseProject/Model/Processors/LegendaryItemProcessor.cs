@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using GildedRoseProgram.Interfaces;
+using System.Collections.Generic;
 
-namespace csharp.Model.Processors
+namespace GildedRoseProgram.Model.Processors
 {
-    public class LegendaryItemProcessor : IItemProcessor
+    internal class LegendaryItemProcessor : IItemProcessor
     {
-        public LegendaryItemProcessor()
-        {
-        }
-
         public bool IsDefaultProcessor => false;
         public IEnumerable<string> ItemTypes => new[] { "sulfuras, hand of ragnaros" };
 

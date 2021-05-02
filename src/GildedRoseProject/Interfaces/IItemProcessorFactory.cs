@@ -1,4 +1,4 @@
-﻿namespace csharp.Model.Processors
+﻿namespace GildedRoseProgram.Interfaces
 {
     public interface IItemProcessorFactory
     {

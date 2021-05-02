@@ -1,8 +1,9 @@
-﻿using csharp.Model.Processors;
+﻿using GildedRoseProgram.Model;
+using GildedRoseProgram.Model.Processors;
 using System;
 using System.Collections.Generic;
 
-namespace csharp
+namespace GildedRoseProgram
 {
     public class Program
     {
@@ -53,6 +54,7 @@ namespace csharp
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+            Console.WriteLine("Press enter to close");
             Console.ReadLine();
         }
     }

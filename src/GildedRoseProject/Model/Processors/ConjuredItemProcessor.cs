@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using GildedRoseProgram.Interfaces;
+using System.Collections.Generic;
 
-namespace csharp.Model.Processors
+namespace GildedRoseProgram.Model.Processors
 {
-    public class ConjuredItemProcessor : IItemProcessor
+    internal class ConjuredItemProcessor : IItemProcessor
     {
-        public ConjuredItemProcessor()
-        {
-        }
 
         public bool IsDefaultProcessor => false;
 
