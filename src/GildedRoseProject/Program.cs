@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csharp.Model.Processors;
+using System;
 using System.Collections.Generic;
 
 namespace csharp
@@ -37,7 +38,8 @@ namespace csharp
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
+            var processorFactory = new ItemProcessorFactory();
+            var app = new GildedRose(Items, processorFactory);
 
 
             for (var i = 0; i < 31; i++)

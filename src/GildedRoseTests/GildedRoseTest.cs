@@ -1,4 +1,5 @@
 ﻿using csharp;
+using csharp.Model.Processors;
 using FluentAssertions;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -8,6 +9,14 @@ namespace GildedRoseTests
     [TestFixture]
     public class GildedRoseTest
     {
+        private IItemProcessorFactory ItemProcessorFactory { get; set; }
+
+        [OneTimeSetUp]
+        public void Setup()
+        {
+            ItemProcessorFactory = new ItemProcessorFactory(); 
+        }
+
 
         //categories: normal, aged brie, legendary item, backstage pass, conjured
 
@@ -18,6 +27,9 @@ namespace GildedRoseTests
         [TestCase("Vest",1, 10, 20, 9, 19)]// TestName = "When_Vest_1_Day_Older_Then_SellIn_Is_1_Lower_And_Quality_Is_1_Lower")]
         [TestCase("Sulfuras, Hand of Ragnaros",1, 0, 80, 0, 80)]// TestName = "When_Legendary_1_Day_Older_Then_SellIn_Is_Same_And_Quality_Is_Same")]
         [TestCase("Backstage passes to a TAFKAL80ETC concert",1, 15, 20, 14, 21)]// TestName = "When_Backstage_1_Day_Older_Then_SellIn_Is_1_Lower_And_Quality_Is_1_Higher")]
+        [TestCase("Conjured Mana Cake",1,10,10,9,8)]
+        [TestCase("Conjured Mana Cake", 4, 2, 4, -2, 0)]
+        [TestCase("Conjured Mana Cake", 4, 2, 20, -2, 8)]
         [TestCase("Aged Brie", 15, 2, 0, -13, 28)]
         [TestCase("Vest", 15, 10, 20, -5, 0)]
         [TestCase("Sulfuras, Hand of Ragnaros", 15, 0, 80, 0, 80)]
@@ -30,7 +42,7 @@ namespace GildedRoseTests
         {
             var item = new Item { Name = name, SellIn = sellIn, Quality = quality };
 
-            var gildedRoseApp = new GildedRose(new[] { item });
+            var gildedRoseApp = new GildedRose(new[] { item }, ItemProcessorFactory);
 
             for(int i=0;i<days;i++)
                 gildedRoseApp.UpdateQuality();
@@ -38,5 +50,21 @@ namespace GildedRoseTests
             item.SellIn.Should().Be(expectedSellIn);
             item.Quality.Should().Be(expectedQuality);
         }
+
+        [Test]
+        [TestCase("Vest", 30, 10, 20, -20, 0)]
+        public void test(string name, int days, int sellIn, int quality, int expectedSellIn, int expectedQuality)
+        {
+            var item = new Item { Name = name, SellIn = sellIn, Quality = quality };
+
+            var gildedRoseApp = new GildedRose(new[] { item }, ItemProcessorFactory);
+
+            for (int i = 0; i < days; i++)
+                gildedRoseApp.UpdateQuality();
+
+            item.SellIn.Should().Be(expectedSellIn);
+            item.Quality.Should().Be(expectedQuality);
+        }
+
     }
 }

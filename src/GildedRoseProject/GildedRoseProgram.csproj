@@ -59,7 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GildedRose.cs" />
+    <Compile Include="Model\Processors\BackstageItemProcessor.cs" />
+    <Compile Include="Model\Processors\ConjuredItemProcessor.cs" />
+    <Compile Include="Model\Processors\AgedBrieItemProcessor.cs" />
+    <Compile Include="Model\IItemProcessor.cs" />
     <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Processors\IItemProcessorFactory.cs" />
+    <Compile Include="Model\Processors\ItemProcessorFactory.cs" />
+    <Compile Include="Model\Processors\LegendaryItemProcessor.cs" />
+    <Compile Include="Model\Processors\NormalItemProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
