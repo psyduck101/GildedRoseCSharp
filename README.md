@@ -14,7 +14,7 @@ This project is a first refactor of the [gilded rose Refactoring kata](https://g
 
 ### Prerequisites
 
-* [.NET framework] (https://dotnet.microsoft.com/download/dotnet-framework)
+* [.NET framework 4.7.2] (https://dotnet.microsoft.com/download/dotnet-framework)
 * [Visual studio] (https://visualstudio.microsoft.com/) for debug purposes/building
 
 ### Installation
